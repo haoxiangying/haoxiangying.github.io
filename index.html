@@ -148,6 +148,82 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-第三天" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2024/02/05/%E7%AC%AC%E4%B8%89%E5%A4%A9/">第三天</a>
+    </h1>
+  
+
+        
+        <a href="/2024/02/05/%E7%AC%AC%E4%B8%89%E5%A4%A9/" class="archive-article-date">
+  	<time datetime="2024-02-05T00:34:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-02-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="cpu的优化"><a href="#cpu的优化" class="headerlink" title="cpu的优化"></a>cpu的优化</h1><h2 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h2><ol>
+<li>目的：快速传递数据给cpu  </li>
+<li>作用：cpu从RAM中拿数据不再是一个一个拿，可以拿一批，对数据的使用和改变直接作用于缓存。</li>
+<li>优化：缓存中存在“脏位”，当进行同步时，如果是“脏”的，会将数据写回RAM</li>
+</ol>
+<h2 id="指令流水线"><a href="#指令流水线" class="headerlink" title="指令流水线"></a>指令流水线</h2><ol>
+<li>cpu按序执行，“取址，解码，执行”（3个时钟周期只能执行1条指令）。流水线使3个功能同时进行 </li>
+<li>指令的依赖关系问题：</li>
+<li>条件跳转问题：条件跳转会改变程序的执行流。“推测执行”高端cpu会猜（分支预测）jump到哪一步，然后提前将指令放到流水线（猜错就清空流水线）  </li>
+<li>流水线执行1条指令时，cpu仍会有部分空闲，因此一次性处理多条指令（指令用cpu的不同部分）。同时加多几个相同的电路，执行出现频次高的指令</li>
+</ol>
+<h2 id="同时运行多个指令流"><a href="#同时运行多个指令流" class="headerlink" title="同时运行多个指令流"></a>同时运行多个指令流</h2><ol>
+<li>多核处理器</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2024/02/05/%E7%AC%AC%E4%B8%89%E5%A4%A9/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-第二天" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
