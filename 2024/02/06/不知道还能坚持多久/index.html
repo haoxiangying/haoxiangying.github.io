@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>第三天 | Hexo</title>
+  <title>不知道还能坚持多久 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="cpu的优化缓存 目的：快速传递数据给cpu   作用：cpu从RAM中拿数据不再是一个一个拿，可以拿一批，对数据的使用和改变直接作用于缓存。 优化：缓存中存在“脏位”，当进行同步时，如果是“脏”的，会将数据写回RAM  指令流水线 cpu按序执行，“取址，解码，执行”（3个时钟周期只能执行1条指令）。流水线使3个功能同时进行  指令的依赖关系问题： 条件跳转问题：条件跳转会改变程序的执行流。“推">
+  <meta name="description" content="##”面向对象编程”：把函数打包成对象的思想 核心：隐藏复杂度，选择性的公布功能##集成开发环境（IDE）用来写代码的工具，工具中集成了很多功能来帮助写代码，整理，编译和测代码 #集成电路（IC）与其把多个独立部件用电线连起来，不如把多个部件打包成一个新的独立部件   但将IC连接，也会出现更大更复杂的电路##印刷电路板（PCB） #光刻（用光把复杂图案印到材料上）  从一片硅开始，叫“晶圆” 在">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第三天">
-<meta property="og:url" content="http://example.com/2024/02/05/%E7%AC%AC%E4%B8%89%E5%A4%A9/index.html">
+<meta property="og:title" content="不知道还能坚持多久">
+<meta property="og:url" content="http://example.com/2024/02/06/%E4%B8%8D%E7%9F%A5%E9%81%93%E8%BF%98%E8%83%BD%E5%9D%9A%E6%8C%81%E5%A4%9A%E4%B9%85/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="cpu的优化缓存 目的：快速传递数据给cpu   作用：cpu从RAM中拿数据不再是一个一个拿，可以拿一批，对数据的使用和改变直接作用于缓存。 优化：缓存中存在“脏位”，当进行同步时，如果是“脏”的，会将数据写回RAM  指令流水线 cpu按序执行，“取址，解码，执行”（3个时钟周期只能执行1条指令）。流水线使3个功能同时进行  指令的依赖关系问题： 条件跳转问题：条件跳转会改变程序的执行流。“推">
+<meta property="og:description" content="##”面向对象编程”：把函数打包成对象的思想 核心：隐藏复杂度，选择性的公布功能##集成开发环境（IDE）用来写代码的工具，工具中集成了很多功能来帮助写代码，整理，编译和测代码 #集成电路（IC）与其把多个独立部件用电线连起来，不如把多个部件打包成一个新的独立部件   但将IC连接，也会出现更大更复杂的电路##印刷电路板（PCB） #光刻（用光把复杂图案印到材料上）  从一片硅开始，叫“晶圆” 在">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-02-05T00:34:19.000Z">
-<meta property="article:modified_time" content="2024-02-05T12:37:30.018Z">
+<meta property="article:published_time" content="2024-02-06T08:29:33.000Z">
+<meta property="article:modified_time" content="2024-02-06T09:07:56.314Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -150,42 +150,41 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-第三天" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-不知道还能坚持多久" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      第三天
+      不知道还能坚持多久
     </h1>
   
 
         
-        <a href="/2024/02/05/%E7%AC%AC%E4%B8%89%E5%A4%A9/" class="archive-article-date">
-  	<time datetime="2024-02-05T00:34:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-02-05</time>
+        <a href="/2024/02/06/%E4%B8%8D%E7%9F%A5%E9%81%93%E8%BF%98%E8%83%BD%E5%9D%9A%E6%8C%81%E5%A4%9A%E4%B9%85/" class="archive-article-date">
+  	<time datetime="2024-02-06T08:29:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-02-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="cpu的优化"><a href="#cpu的优化" class="headerlink" title="cpu的优化"></a>cpu的优化</h1><h2 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h2><ol>
-<li>目的：快速传递数据给cpu  </li>
-<li>作用：cpu从RAM中拿数据不再是一个一个拿，可以拿一批，对数据的使用和改变直接作用于缓存。</li>
-<li>优化：缓存中存在“脏位”，当进行同步时，如果是“脏”的，会将数据写回RAM</li>
+        <p>##”面向对象编程”：把函数打包成对象的思想<br> 核心：隐藏复杂度，选择性的公布功能<br>##集成开发环境（IDE）<br>用来写代码的工具，工具中集成了很多功能来帮助写代码，整理，编译和测代码</p>
+<p>#集成电路（IC）<br>与其把多个独立部件用电线连起来，不如把多个部件打包成一个新的独立部件  </p>
+<p>但将IC连接，也会出现更大更复杂的电路<br>##印刷电路板（PCB）</p>
+<p>#光刻（用光把复杂图案印到材料上）</p>
+<ol>
+<li>从一片硅开始，叫“晶圆”</li>
+<li>在硅片顶部加氧化层作为保护层，再加光刻胶（被光照射后可溶），再加光掩膜</li>
+<li>强光照射晶圆，光照到的地方会暴露出氧化层</li>
+<li>用化学物质洗掉露出的氧化层</li>
+<li>另一种化学物质洗掉光刻胶</li>
+<li>掺杂：用高温气体渗透进暴露的硅，改变电学性质</li>
+<li>在氧化层做通道，用细小金属导线连接不同晶体管</li>
 </ol>
-<h2 id="指令流水线"><a href="#指令流水线" class="headerlink" title="指令流水线"></a>指令流水线</h2><ol>
-<li>cpu按序执行，“取址，解码，执行”（3个时钟周期只能执行1条指令）。流水线使3个功能同时进行 </li>
-<li>指令的依赖关系问题：</li>
-<li>条件跳转问题：条件跳转会改变程序的执行流。“推测执行”高端cpu会猜（分支预测）jump到哪一步，然后提前将指令放到流水线（猜错就清空流水线）  </li>
-<li>流水线执行1条指令时，cpu仍会有部分空闲，因此一次性处理多条指令（指令用cpu的不同部分）。同时加多几个相同的电路，执行出现频次高的指令</li>
-</ol>
-<h2 id="同时运行多个指令流"><a href="#同时运行多个指令流" class="headerlink" title="同时运行多个指令流"></a>同时运行多个指令流</h2><ol>
-<li>多核处理器</li>
-</ol>
-<p>#二进制是电脑的母语</p>
-<p> 一： 汇编器：读取用“汇编语言”写的程序，然后转成“机械码”</p>
+<p>让晶体管变小   </p>
+<p>用物理的电路来表示数学，用数学制作计算机？ </p>
 
       
 
@@ -270,7 +269,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2024/02/05/%E7%AC%AC%E4%B8%89%E5%A4%A9/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2024/02/06/%E4%B8%8D%E7%9F%A5%E9%81%93%E8%BF%98%E8%83%BD%E5%9D%9A%E6%8C%81%E5%A4%9A%E4%B9%85/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -284,18 +283,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2024/02/06/%E4%B8%8D%E7%9F%A5%E9%81%93%E8%BF%98%E8%83%BD%E5%9D%9A%E6%8C%81%E5%A4%9A%E4%B9%85/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          不知道还能坚持多久
-        
-      </div>
-    </a>
   
-  
-    <a href="/2024/02/04/%E7%AC%AC%E4%BA%8C%E5%A4%A9/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">第二天</div>
+    <a href="/2024/02/05/%E7%AC%AC%E4%B8%89%E5%A4%A9/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">第三天</div>
       <i class="icon-circle-right"></i>
     </a>
   
