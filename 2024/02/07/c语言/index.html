@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2024/2 | Hexo</title>
+  <title>c语言 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/archives/2024/02/index.html">
+  <meta name="description" content="c语言显示图片##include &lt;SDL2&#x2F;SDL.h&gt;   &#x2F;&#x2F; 包含SDL库的头文件，这是使用SDL的基础。##include &lt;stdbool.h&gt;    &#x2F;&#x2F; 包含stdbool.h头文件，用于使用bool类型。   int main(int argc, char* argv[]) { &#x2F;&#x2F; 初">
+<meta property="og:type" content="article">
+<meta property="og:title" content="c语言">
+<meta property="og:url" content="http://example.com/2024/02/07/c%E8%AF%AD%E8%A8%80/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="c语言显示图片##include &lt;SDL2&#x2F;SDL.h&gt;   &#x2F;&#x2F; 包含SDL库的头文件，这是使用SDL的基础。##include &lt;stdbool.h&gt;    &#x2F;&#x2F; 包含stdbool.h头文件，用于使用bool类型。   int main(int argc, char* argv[]) { &#x2F;&#x2F; 初">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-02-07T11:43:25.000Z">
+<meta property="article:modified_time" content="2024-02-07T11:48:10.202Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -146,238 +150,219 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-c语言" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      c语言
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2024" class="archive-year">2024</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2024/02/07/c%E8%AF%AD%E8%A8%80/" class="archive-article-date">
+
+        
+        <a href="/2024/02/07/c%E8%AF%AD%E8%A8%80/" class="archive-article-date">
   	<time datetime="2024-02-07T11:43:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-02-07</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/02/07/c%E8%AF%AD%E8%A8%80/">c语言</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="c语言显示图片"><a href="#c语言显示图片" class="headerlink" title="c语言显示图片"></a>c语言显示图片</h1><p>##include &lt;SDL2&#x2F;SDL.h&gt;   &#x2F;&#x2F; 包含SDL库的头文件，这是使用SDL的基础。<br>##include &lt;stdbool.h&gt;    &#x2F;&#x2F; 包含stdbool.h头文件，用于使用bool类型。  </p>
+<p>int main(int argc, char* argv[]) {</p>
+<h2 id="初始化SDL的视频子系统，这是使用SDL图形功能所必需的。"><a href="#初始化SDL的视频子系统，这是使用SDL图形功能所必需的。" class="headerlink" title="&#x2F;&#x2F; 初始化SDL的视频子系统，这是使用SDL图形功能所必需的。"></a>&#x2F;&#x2F; 初始化SDL的视频子系统，这是使用SDL图形功能所必需的。</h2><pre><code>if (SDL_Init(SDL_INIT_VIDEO) &lt; 0) &#123;
+    SDL_Log(&quot;Unable to initialize SDL: %s&quot;, SDL_GetError());
+    return 1; // 如果初始化失败，记录错误信息并退出程序。     &#125;
+</code></pre>
+<h2 id="创建一个窗口，设置窗口的标题、位置和大小。"><a href="#创建一个窗口，设置窗口的标题、位置和大小。" class="headerlink" title="创建一个窗口，设置窗口的标题、位置和大小。"></a>创建一个窗口，设置窗口的标题、位置和大小。</h2><pre><code>SDL_Window* window = SDL_CreateWindow(&quot;SDL Image Display&quot;,
+    SDL_WINDOWPOS_UNDEFINED, // 窗口的x坐标，这里设置为未定义，让系统选择。  
+    SDL_WINDOWPOS_UNDEFINED, // 窗口的y坐标，这里设置为未定义，让系统选择。  
+    640, 480,               // 窗口的宽度和高度。  
+    SDL_WINDOW_SHOWN);      // 窗口创建后立即显示。  
+if (!window) &#123;
+    SDL_Log(&quot;Could not create window: %s&quot;, SDL_GetError());
+    return 1; // 如果创建窗口失败，记录错误信息并退出程序。  
+&#125;
+</code></pre>
+<h2 id="创建一个渲染器，用于在窗口上绘制图形。这里使用硬件加速的渲染器。"><a href="#创建一个渲染器，用于在窗口上绘制图形。这里使用硬件加速的渲染器。" class="headerlink" title="创建一个渲染器，用于在窗口上绘制图形。这里使用硬件加速的渲染器。"></a>创建一个渲染器，用于在窗口上绘制图形。这里使用硬件加速的渲染器。</h2><pre><code>SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+if (!renderer) &#123;
+    SDL_Log(&quot;Could not create renderer: %s&quot;, SDL_GetError());
+    return 1; // 如果创建渲染器失败，记录错误信息并退出程序。  
+&#125;
+</code></pre>
+<h2 id="加载一个图像文件，这里假设是BMP格式。"><a href="#加载一个图像文件，这里假设是BMP格式。" class="headerlink" title="加载一个图像文件，这里假设是BMP格式。"></a>加载一个图像文件，这里假设是BMP格式。</h2><pre><code>SDL_Surface* loadedSurface = SDL_LoadBMP(&quot;path_to_image.bmp&quot;);
+if (!loadedSurface) &#123;
+    SDL_Log(&quot;Unable to load image: %s&quot;, SDL_GetError());
+    return 1; // 如果加载图像失败，记录错误信息并退出程序。  
+&#125;
+</code></pre>
+<h2 id="从加载的图像表面创建一个纹理，这样可以在渲染器上绘制它。"><a href="#从加载的图像表面创建一个纹理，这样可以在渲染器上绘制它。" class="headerlink" title="从加载的图像表面创建一个纹理，这样可以在渲染器上绘制它。"></a>从加载的图像表面创建一个纹理，这样可以在渲染器上绘制它。</h2><pre><code>SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, loadedSurface);
+SDL_FreeSurface(loadedSurface); // 不再需要原始表面，释放它。  
+if (!texture) &#123;
+    SDL_Log(&quot;Unable to create texture from loaded image: %s&quot;, SDL_GetError());
+    return 1; // 如果创建纹理失败，记录错误信息并退出程序。  
+&#125;
+</code></pre>
+<h2 id="设置一个标志，用于控制渲染循环是否继续。"><a href="#设置一个标志，用于控制渲染循环是否继续。" class="headerlink" title="设置一个标志，用于控制渲染循环是否继续。"></a>设置一个标志，用于控制渲染循环是否继续。</h2><pre><code>bool quit = false;
+</code></pre>
+<h2 id="渲染循环，持续进行直到用户请求退出。"><a href="#渲染循环，持续进行直到用户请求退出。" class="headerlink" title="渲染循环，持续进行直到用户请求退出。"></a>渲染循环，持续进行直到用户请求退出。</h2><pre><code>while (!quit) &#123;
+    // 处理事件队列，比如检查用户是否点击了关闭按钮。  
+    SDL_Event event;
+    while (SDL_PollEvent(&amp;event)) &#123;
+        if (event.type == SDL_QUIT) &#123;
+            quit = true; // 如果用户请求退出，设置quit标志为true。  
+        &#125;
+    &#125;
+</code></pre>
+<h2 id="开始渲染过程。"><a href="#开始渲染过程。" class="headerlink" title="开始渲染过程。"></a>开始渲染过程。</h2><pre><code>    SDL_RenderClear(renderer); // 清除渲染器，准备绘制新内容。  
+    SDL_RenderCopy(renderer, texture, NULL, NULL); // 将纹理复制到渲染器上。  
+    SDL_RenderPresent(renderer); // 将渲染器的内容呈现到窗口上。  
+&#125;
+</code></pre>
+<h2 id="清理创建的资源并退出SDL。"><a href="#清理创建的资源并退出SDL。" class="headerlink" title="清理创建的资源并退出SDL。"></a>清理创建的资源并退出SDL。</h2><pre><code>SDL_DestroyTexture(texture); // 销毁纹理。  
+SDL_DestroyRenderer(renderer); // 销毁渲染器。  
+SDL_DestroyWindow(window); // 销毁窗口。  
+SDL_Quit(); // 退出SDL。  
 
-        <div class="article-info info-on-right">
-          
-          
+return 0; // 程序正常退出。  
+</code></pre>
+<p>}</p>
 
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2024/02/07/c%E8%AF%AD%E8%A8%80/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2024/02/07/%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2024-02-07T08:00:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-02-07</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2024/02/07/%E9%97%AE%E9%A2%98/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">问题</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/02/07/%E9%97%AE%E9%A2%98/">问题</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2024/02/07/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="archive-article-date">
-  	<time datetime="2024-02-07T00:32:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-02-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/02/07/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2024/02/06/%E4%B8%8D%E7%9F%A5%E9%81%93%E8%BF%98%E8%83%BD%E5%9D%9A%E6%8C%81%E5%A4%9A%E4%B9%85/" class="archive-article-date">
-  	<time datetime="2024-02-06T08:29:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-02-06</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/02/06/%E4%B8%8D%E7%9F%A5%E9%81%93%E8%BF%98%E8%83%BD%E5%9D%9A%E6%8C%81%E5%A4%9A%E4%B9%85/">不知道还能坚持多久</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2024/02/05/%E7%AC%AC%E4%B8%89%E5%A4%A9/" class="archive-article-date">
-  	<time datetime="2024-02-05T00:34:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-02-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/02/05/%E7%AC%AC%E4%B8%89%E5%A4%A9/">第三天</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2024/02/04/%E7%AC%AC%E4%BA%8C%E5%A4%A9/" class="archive-article-date">
-  	<time datetime="2024-02-04T02:21:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-02-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/02/04/%E7%AC%AC%E4%BA%8C%E5%A4%A9/">第二天</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2024/02/03/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-  	<time datetime="2024-02-03T08:39:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-02-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/02/03/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">我的第一篇博客</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2024/02/03/hello-world/" class="archive-article-date">
-  	<time datetime="2024-02-03T07:34:16.269Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-02-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/02/03/hello-world/">Hello World</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -400,8 +385,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

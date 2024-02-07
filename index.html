@@ -148,6 +148,127 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-c语言" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2024/02/07/c%E8%AF%AD%E8%A8%80/">c语言</a>
+    </h1>
+  
+
+        
+        <a href="/2024/02/07/c%E8%AF%AD%E8%A8%80/" class="archive-article-date">
+  	<time datetime="2024-02-07T11:43:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-02-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="c语言显示图片"><a href="#c语言显示图片" class="headerlink" title="c语言显示图片"></a>c语言显示图片</h1><p>##include &lt;SDL2&#x2F;SDL.h&gt;   &#x2F;&#x2F; 包含SDL库的头文件，这是使用SDL的基础。<br>##include &lt;stdbool.h&gt;    &#x2F;&#x2F; 包含stdbool.h头文件，用于使用bool类型。  </p>
+<p>int main(int argc, char* argv[]) {</p>
+<h2 id="初始化SDL的视频子系统，这是使用SDL图形功能所必需的。"><a href="#初始化SDL的视频子系统，这是使用SDL图形功能所必需的。" class="headerlink" title="&#x2F;&#x2F; 初始化SDL的视频子系统，这是使用SDL图形功能所必需的。"></a>&#x2F;&#x2F; 初始化SDL的视频子系统，这是使用SDL图形功能所必需的。</h2><pre><code>if (SDL_Init(SDL_INIT_VIDEO) &lt; 0) &#123;
+    SDL_Log(&quot;Unable to initialize SDL: %s&quot;, SDL_GetError());
+    return 1; // 如果初始化失败，记录错误信息并退出程序。     &#125;
+</code></pre>
+<h2 id="创建一个窗口，设置窗口的标题、位置和大小。"><a href="#创建一个窗口，设置窗口的标题、位置和大小。" class="headerlink" title="创建一个窗口，设置窗口的标题、位置和大小。"></a>创建一个窗口，设置窗口的标题、位置和大小。</h2><pre><code>SDL_Window* window = SDL_CreateWindow(&quot;SDL Image Display&quot;,
+    SDL_WINDOWPOS_UNDEFINED, // 窗口的x坐标，这里设置为未定义，让系统选择。  
+    SDL_WINDOWPOS_UNDEFINED, // 窗口的y坐标，这里设置为未定义，让系统选择。  
+    640, 480,               // 窗口的宽度和高度。  
+    SDL_WINDOW_SHOWN);      // 窗口创建后立即显示。  
+if (!window) &#123;
+    SDL_Log(&quot;Could not create window: %s&quot;, SDL_GetError());
+    return 1; // 如果创建窗口失败，记录错误信息并退出程序。  
+&#125;
+</code></pre>
+<h2 id="创建一个渲染器，用于在窗口上绘制图形。这里使用硬件加速的渲染器。"><a href="#创建一个渲染器，用于在窗口上绘制图形。这里使用硬件加速的渲染器。" class="headerlink" title="创建一个渲染器，用于在窗口上绘制图形。这里使用硬件加速的渲染器。"></a>创建一个渲染器，用于在窗口上绘制图形。这里使用硬件加速的渲染器。</h2><pre><code>SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+if (!renderer) &#123;
+    SDL_Log(&quot;Could not create renderer: %s&quot;, SDL_GetError());
+    return 1; // 如果创建渲染器失败，记录错误信息并退出程序。  
+&#125;
+</code></pre>
+<h2 id="加载一个图像文件，这里假设是BMP格式。"><a href="#加载一个图像文件，这里假设是BMP格式。" class="headerlink" title="加载一个图像文件，这里假设是BMP格式。"></a>加载一个图像文件，这里假设是BMP格式。</h2><pre><code>SDL_Surface* loadedSurface = SDL_LoadBMP(&quot;path_to_image.bmp&quot;);
+if (!loadedSurface) &#123;
+    SDL_Log(&quot;Unable to load image: %s&quot;, SDL_GetError());
+    return 1; // 如果加载图像失败，记录错误信息并退出程序。  
+&#125;
+</code></pre>
+<h2 id="从加载的图像表面创建一个纹理，这样可以在渲染器上绘制它。"><a href="#从加载的图像表面创建一个纹理，这样可以在渲染器上绘制它。" class="headerlink" title="从加载的图像表面创建一个纹理，这样可以在渲染器上绘制它。"></a>从加载的图像表面创建一个纹理，这样可以在渲染器上绘制它。</h2><pre><code>SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, loadedSurface);
+SDL_FreeSurface(loadedSurface); // 不再需要原始表面，释放它。  
+if (!texture) &#123;
+    SDL_Log(&quot;Unable to create texture from loaded image: %s&quot;, SDL_GetError());
+    return 1; // 如果创建纹理失败，记录错误信息并退出程序。  
+&#125;
+</code></pre>
+<h2 id="设置一个标志，用于控制渲染循环是否继续。"><a href="#设置一个标志，用于控制渲染循环是否继续。" class="headerlink" title="设置一个标志，用于控制渲染循环是否继续。"></a>设置一个标志，用于控制渲染循环是否继续。</h2><pre><code>bool quit = false;
+</code></pre>
+<h2 id="渲染循环，持续进行直到用户请求退出。"><a href="#渲染循环，持续进行直到用户请求退出。" class="headerlink" title="渲染循环，持续进行直到用户请求退出。"></a>渲染循环，持续进行直到用户请求退出。</h2><pre><code>while (!quit) &#123;
+    // 处理事件队列，比如检查用户是否点击了关闭按钮。  
+    SDL_Event event;
+    while (SDL_PollEvent(&amp;event)) &#123;
+        if (event.type == SDL_QUIT) &#123;
+            quit = true; // 如果用户请求退出，设置quit标志为true。  
+        &#125;
+    &#125;
+</code></pre>
+<h2 id="开始渲染过程。"><a href="#开始渲染过程。" class="headerlink" title="开始渲染过程。"></a>开始渲染过程。</h2><pre><code>    SDL_RenderClear(renderer); // 清除渲染器，准备绘制新内容。  
+    SDL_RenderCopy(renderer, texture, NULL, NULL); // 将纹理复制到渲染器上。  
+    SDL_RenderPresent(renderer); // 将渲染器的内容呈现到窗口上。  
+&#125;
+</code></pre>
+<h2 id="清理创建的资源并退出SDL。"><a href="#清理创建的资源并退出SDL。" class="headerlink" title="清理创建的资源并退出SDL。"></a>清理创建的资源并退出SDL。</h2><pre><code>SDL_DestroyTexture(texture); // 销毁纹理。  
+SDL_DestroyRenderer(renderer); // 销毁渲染器。  
+SDL_DestroyWindow(window); // 销毁窗口。  
+SDL_Quit(); // 退出SDL。  
+
+return 0; // 程序正常退出。  
+</code></pre>
+<p>}</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2024/02/07/c%E8%AF%AD%E8%A8%80/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -206,7 +327,10 @@
 <p>虽然JavaScript主要用于网页开发，但它也可以用于其他环境，比如服务器端编程和移动应用开发。</p>
 <h2 id="Web前端"><a href="#Web前端" class="headerlink" title="Web前端"></a>Web前端</h2><p>Web前端，也被称为“客户端”，是关于用户可以看到和体验的网站的视觉方面，即用户所看到的一切Web浏览器展示的内容，涉及用户可以看到、触摸和体验的一切。它包括Web页面的结构、Web的外观视觉表现以及Web层面的交互实现。Web前端是从网页制作演变而来的，随着互联网技术的发展和HTML5、CSS3的应用，现代网页更加美观，交互效果显著，功能更加强大。</p>
 <p>Web前端是前端网络编程，也称为用户端编程，是为网页或网页应用程序编写HTML、CSS和JavaScript代码，这样用户就可以看到这些网页并与之通信。前端网络编程的挑战在于用于实现前端页面的工具和技术的快速变化，因此工程师需要不断关注行业的发展情况。</p>
-<h2 id="开源技术"><a href="#开源技术" class="headerlink" title="开源技术"></a>开源技术</h2><p>开源技术是一种允许任何人查看、使用、修改和分发软件源代码的技术。在开源的模式下，软件的开发者可以将自己的代码公开，供其他人自由使用和修改，从而促进了技术的共享和创新。开源技术已经广泛应用于各种开发领域，尤其是软件开发领域，有许多著名的开源技术，如Linux、Apache、MySQL、Python、Ruby等。</p>
+<h2 id="开源技术"><a href="#开源技术" class="headerlink" title="开源技术"></a>开源技术</h2><p>开源技术是一种允许任何人查看、使用、修改和分发软件源代码的技术。在开源的模式下，软件的开发者可以将自己的代码公开，供其他人自由使用和修改，从而促进了技术的共享和创新。开源技术已经广泛应用于各种开发领域，尤其是软件开发领域，有许多著名的开源技术，如Linux、Apache、MySQL、Python、Ruby等。  </p>
+<p>##数据库<br>数据库（DataBase，简称DB）是按照数据结构来组织、存储和管理数据的仓库。它是一个长期存储在计算机内的、有组织的、可共享的、统一管理的大量数据的集合。</p>
+<p>数据库中的数据是以一定的数据模型来组织、描述和存储的，它可以被多个用户所共享，并具有较小的冗余度、较高的数据独立性和易扩展性。数据库中的数据通常以行和列的形式存储在表格中，用户可以通过结构化查询语言（SQL）来查询、插入、更新、删除和管理这些数据。</p>
+<p>数据库有多种类型，包括关系型数据库（如MySQL、Oracle、SQL Server等）和非关系型数据库（如Redis、MongoDB等）。关系型数据库使用表格的方式来存储数据，而非关系型数据库则使用不同的数据结构来存储数据，如键值对、文档、列族等。</p>
 
       
 
